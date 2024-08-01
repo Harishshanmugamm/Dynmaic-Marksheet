@@ -3,82 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-   
+    <title>Marsheet Input</title>
+    <link rel="shortcut icon" href="./Assets/logobg.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>  
 </head>
-
 <body>
-    <div class="container">
-        <div class="document-header">
-            <img src="./Assets/logo.png" alt="Logo">
-            
-            <h1>Annual Statement of Marks</h1>
+
+<div class="container">
+    <h1>Generate Annual Statement of Marks</h1>
+    <form id="marksForm" action="output.html" method="GET">
+        <div class="form-group">
+            <label for="candidateName">Candidate's Name</label>
+            <input type="text" class="form-control" id="candidateName" name="candidateName" required>
         </div>
-        <div id="qrcode" class="text-center mb-4"></div>
-        <div class="table-responsive">
-            <table class="table table-bordered marks-table">
-                <thead>
-                    <tr>
-                        <th>Subject Code</th>
-                        <th>Subject Name</th>
-                        <th>Max. Marks</th>
-                        <th>Marks Obtained</th>
-                        <th>Total in Words</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>21IT6402</td>
-                        <td>Data Science</td>
-                        <td>100</td>
-                        <td>00</td>
-                        <td>Zero Zero</td>
-                    </tr>
-                    <tr>
-                        <td>21IT9401</td>
-                        <td>Software Project Management</td>
-                        <td>100</td>
-                        <td>00</td>
-                        <td>Zero Zero</td>
-                    </tr>
-                    <tr>
-                        <td>21IT8765</td>
-                        <td></td>
-                        <td>100</td>
-                        <td>00</td>
-                        <td>Zero Zero</td>
-                    </tr>
-                    <tr>
-                        <td>21IT6304</td>
-                        <td>Fire Extinction and Control</td>
-                        <td>100</td>
-                        <td>00</td>
-                        <td>Zero Zero</td>
-                    </tr>
-                    <tr>
-                        <td>21IT6202</td>
-                        <td>Industrial Safety Management</td>
-                        <td>100</td>
-                        <td>00</td>
-                        <td>Zero Zero</td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="form-group">
+            <label for="rollNumber">Roll Number</label>
+            <input type="text" class="form-control" id="rollNumber" name="rollNumber" required>
         </div>
-        <div class="row">
-            <div class="col-md-6">
-                <p>Month and Year of Examination: May 2020</p>
-                <p>Result: PASS</p>
-                <p>Percentage: 00.00%</p>
-                <p>Grade: </p>
-            </div>
-            <div class="col-md-6 text-end">
-                <p>(Signature)</p>
-                <p>Deputy Controller of Examination</p>
-            </div>
+        <div class="form-group">
+            <label for="enrollmentNumber">Enrollment Number</label>
+            <input type="text" class="form-control" id="enrollmentNumber" name="enrollmentNumber" required>
         </div>
-    </div>
-    <script src="./script.js"></script>
+        <div class="form-group">
+            <label for="subjects">Subjects (code:name:theory:practical,code:name:theory:practical)</label>
+            <textarea class="form-control" id="subjects" name="subjects" rows="3" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="examMonthYear">Month and Year of Exam</label>
+            <input type="text" class="form-control" id="examMonthYear" name="examMonthYear" required>
+        </div>
+        <div class="form-group">
+            <label for="numSubjects">Number of Subjects Offered</label>
+            <input type="number" class="form-control" id="numSubjects" name="numSubjects" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Generate</button>
+    </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </body>
 </html>
